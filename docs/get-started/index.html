@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started &mdash; Guia de homologação de Indicadores de Pesagem 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=aec2756f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Guia de homologação de Indicadores de Pesagem
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Conteúdos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introducao.html">Introdução</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Guia de homologação de Indicadores de Pesagem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Get Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/get-started/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="get-started">
+<h1>Get Started<a class="headerlink" href="#get-started" title="Link to this heading"></a></h1>
+<p><a href="#id1"><span class="problematic" id="id2">:link_to_translation:`zh_CN:[中文]`</span></a></p>
+<p>This document is intended to help you set up the software development environment for the hardware based on the {IDF_TARGET_NAME} chip by Espressif. After that, a simple example will show you how to use ESP-IDF (Espressif IoT Development Framework) for menu configuration, then for building and flashing firmware onto an {IDF_TARGET_NAME} board.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>{IDF_TARGET_NAME} is a system on a chip that integrates the following features:</p>
+<p>Powered by 40 nm technology, {IDF_TARGET_NAME} provides a robust, highly integrated platform, which helps meet the continuous demands for efficient power usage, compact design, security, high performance, and reliability.</p>
+<p>Espressif provides basic hardware and software resources to help application developers realize their ideas using the {IDF_TARGET_NAME} series hardware. The software development framework by Espressif is intended for development of Internet-of-Things (IoT) applications with Wi-Fi, Bluetooth, power management and several other system features.</p>
+</section>
+<section id="what-you-need">
+<h2>What You Need<a class="headerlink" href="#what-you-need" title="Link to this heading"></a></h2>
+<section id="hardware">
+<h3>Hardware<a class="headerlink" href="#hardware" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>An <strong>{IDF_TARGET_NAME}</strong> board.</p></li>
+<li><p><strong>USB cable</strong> - USB A / micro USB B.</p></li>
+<li><p><strong>Computer</strong> running Windows, Linux, or macOS.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, some of the development boards are using USB Type C connectors. Be sure you have the correct cable to connect your board!</p>
+</div>
+<p>If you have one of {IDF_TARGET_NAME} official development boards listed below, you can click on the link to learn more about the hardware.</p>
+</section>
+<section id="software">
+<span id="get-started-get-prerequisites"></span><h3>Software<a class="headerlink" href="#software" title="Link to this heading"></a></h3>
+<p>To start using ESP-IDF on <strong>{IDF_TARGET_NAME}</strong>, install the following software:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Toolchain</strong> to compile code for {IDF_TARGET_NAME}</p></li>
+<li><p><strong>Build tools</strong> - CMake and Ninja to build a full <strong>Application</strong> for {IDF_TARGET_NAME}</p></li>
+<li><p><strong>ESP-IDF</strong> that essentially contains API (software libraries and source code) for {IDF_TARGET_NAME} and scripts to operate the <strong>Toolchain</strong></p></li>
+</ul>
+</div></blockquote>
+<figure class="align-center">
+<img alt="Development of applications for {IDF_TARGET_NAME}" src="../_static/what-you-need.png" />
+</figure>
+</section>
+</section>
+<section id="installation">
+<span id="get-started-how-to-get-esp-idf"></span><span id="get-started-step-by-step"></span><h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>To install all the required software, we offer some different ways to facilitate this task. Choose from one of the available options.</p>
+<section id="ide">
+<h3>IDE<a class="headerlink" href="#ide" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We highly recommend installing the ESP-IDF through your favorite IDE.</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/espressif/idf-eclipse-plugin/blob/master/README.md">Eclipse Plugin</a></p></li>
+<li><p><a class="reference external" href="https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md">VSCode Extension</a></p></li>
+</ul>
+</section>
+<section id="manual-installation">
+<h3>Manual Installation<a class="headerlink" href="#manual-installation" title="Link to this heading"></a></h3>
+<p>For the manual procedure, please select according to your operating system.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="windows-setup.html">Windows Installer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux-macos-setup.html">Linux and macOS</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="build-your-first-project">
+<h2>Build Your First Project<a class="headerlink" href="#build-your-first-project" title="Link to this heading"></a></h2>
+<p>If you already have the ESP-IDF installed and not using IDE, you can build your first project from the command line following the <a class="reference internal" href="windows-setup.html#get-started-windows-first-steps"><span class="std std-ref">Start a Project on Windows</span></a> or <a class="reference internal" href="linux-macos-setup.html#get-started-linux-macos-first-steps"><span class="std std-ref">Start a Project on Linux and macOS</span></a>.</p>
+</section>
+<section id="uninstall-esp-idf">
+<h2>Uninstall ESP-IDF<a class="headerlink" href="#uninstall-esp-idf" title="Link to this heading"></a></h2>
+<p>If you want to remove ESP-IDF, please follow <span class="xref std std-ref">idf-tools-uninstall</span>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Eng G.Locateli.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

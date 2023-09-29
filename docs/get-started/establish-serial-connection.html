@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Establish Serial Connection with {IDF_TARGET_NAME} &mdash; Guia de homologação de Indicadores de Pesagem 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=aec2756f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Guia de homologação de Indicadores de Pesagem
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Conteúdos:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introducao.html">Introdução</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Guia de homologação de Indicadores de Pesagem</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Establish Serial Connection with {IDF_TARGET_NAME}</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/get-started/establish-serial-connection.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="establish-serial-connection-with-idf-target-name">
+<h1>Establish Serial Connection with {IDF_TARGET_NAME}<a class="headerlink" href="#establish-serial-connection-with-idf-target-name" title="Link to this heading"></a></h1>
+<p><a href="#id1"><span class="problematic" id="id2">:link_to_translation:`zh_CN:[中文]`</span></a></p>
+<p>Establishing a serial connection with the {IDF_TARGET_NAME} target device could be done using a USB-to-UART bridge.</p>
+<p>Some development boards have the USB-to-UART bridge installed. If a board does not have a bridge then an external bridge may be used.</p>
+<section id="usb-to-uart-bridge-on-development-board">
+<h2>USB-to-UART Bridge on Development Board<a class="headerlink" href="#usb-to-uart-bridge-on-development-board" title="Link to this heading"></a></h2>
+<p>For boards with an installed USB-to-UART bridge, the connection between the personal computer and the bridge is USB and between the bridge and {IDF_TARGET_NAME} is UART.</p>
+</section>
+<section id="external-usb-to-uart-bridge">
+<h2>External USB-to-UART Bridge<a class="headerlink" href="#external-usb-to-uart-bridge" title="Link to this heading"></a></h2>
+<p>Sometimes the USB-to-UART bridge is external. This is often used in small development boards or finished products when space and costs are crucial.</p>
+</section>
+<section id="flash-using-uart">
+<h2>Flash Using UART<a class="headerlink" href="#flash-using-uart" title="Link to this heading"></a></h2>
+<p>This section provides guidance on how to establish a serial connection between {IDF_TARGET_NAME} and PC using USB-to-UART Bridge, either installed on the development board or external.</p>
+<section id="connect-idf-target-name-to-pc">
+<h3>Connect {IDF_TARGET_NAME} to PC<a class="headerlink" href="#connect-idf-target-name-to-pc" title="Link to this heading"></a></h3>
+<p>Connect the {IDF_TARGET_NAME} board to the PC using the USB cable. If device driver does not install automatically, identify USB-to-UART bridge on your {IDF_TARGET_NAME} board (or external converter dongle), search for drivers in internet and install them.</p>
+<p>Below is the list of USB to serial converter chips installed on most of the {IDF_TARGET_NAME} boards produced by Espressif together with links to the drivers:</p>
+<ul class="simple">
+<li><p>CP210x: <a class="reference external" href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers">CP210x USB to UART Bridge VCP Drivers</a></p></li>
+<li><p>FTDI: <a class="reference external" href="https://ftdichip.com/drivers/vcp-drivers/">FTDI Virtual COM Port Drivers</a></p></li>
+</ul>
+<p>Please check the board user guide for specific USB-to-UART bridge chip used. The drivers above are primarily for reference. Under normal circumstances, the drivers should be bundled with an operating system and automatically installed upon connecting the board to the PC.</p>
+<p>For devices downloaded using a USB-to-UART bridge, you can run the following command including the optional argument to define the baud rate.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>idf.py<span class="w"> </span>-p<span class="w"> </span>PORT<span class="w"> </span><span class="o">[</span>-b<span class="w"> </span>BAUD<span class="o">]</span><span class="w"> </span>flash
+</pre></div>
+</div>
+<p>You can change the flasher baud rate by replacing <code class="docutils literal notranslate"><span class="pre">BAUD</span></code> with the baud rate you need. The default baud rate is <code class="docutils literal notranslate"><span class="pre">460800</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the device does not support the auto download mode, you need to get into the download mode manually. To do so, press and hold the <code class="docutils literal notranslate"><span class="pre">BOOT</span></code> button and then press the <code class="docutils literal notranslate"><span class="pre">RESET</span></code> button once. After that release the <code class="docutils literal notranslate"><span class="pre">BOOT</span></code> button.</p>
+</div>
+</section>
+</section>
+<section id="check-port-on-windows">
+<h2>Check Port on Windows<a class="headerlink" href="#check-port-on-windows" title="Link to this heading"></a></h2>
+<p>Check the list of identified COM ports in the Windows Device Manager. Disconnect {IDF_TARGET_NAME} and connect it back, to verify which port disappears from the list and then shows back again.</p>
+<p>Figures below show serial port for ESP32 DevKitC and ESP32 WROVER KIT</p>
+<figure class="align-center" id="id5">
+<img alt="USB to UART bridge of ESP32-DevKitC in Windows Device Manager" src="../_static/esp32-devkitc-in-device-manager.png" />
+<figcaption>
+<p><span class="caption-text">USB to UART bridge of ESP32-DevKitC in Windows Device Manager</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<img alt="Two USB Serial Ports of ESP-WROVER-KIT in Windows Device Manager" src="../_static/esp32-wrover-kit-in-device-manager.png" />
+<figcaption>
+<p><span class="caption-text">Two USB Serial Ports of ESP-WROVER-KIT in Windows Device Manager</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="check-port-on-linux-and-macos">
+<h2>Check Port on Linux and macOS<a class="headerlink" href="#check-port-on-linux-and-macos" title="Link to this heading"></a></h2>
+<p>To check the device name for the serial port of your {IDF_TARGET_NAME} board (or external converter dongle), run this command two times, first with the board/dongle unplugged, then with plugged in. The port which appears the second time is the one you need:</p>
+<p>Linux</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">tty</span><span class="o">*</span>
+</pre></div>
+</div>
+<p>macOS</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cu</span><span class="o">.*</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>macOS users: if you do not see the serial port then check you have the USB/serial drivers installed. See Section <a class="reference internal" href="#connect-idf-target-name-to-pc">Connect {IDF_TARGET_NAME} to PC</a> for links to drivers. For macOS High Sierra (10.13), you may also have to explicitly allow the drivers to load. Open System Preferences -&gt; Security &amp; Privacy -&gt; General and check if there is a message shown here about “System Software from developer …” where the developer name is Silicon Labs or FTDI.</p>
+</div>
+</section>
+<section id="adding-user-to-dialout-on-linux">
+<span id="linux-dialout-group"></span><h2>Adding User to <code class="docutils literal notranslate"><span class="pre">dialout</span></code> on Linux<a class="headerlink" href="#adding-user-to-dialout-on-linux" title="Link to this heading"></a></h2>
+<p>The currently logged user should have read and write access the serial port over USB. On most Linux distributions, this is done by adding the user to <code class="docutils literal notranslate"><span class="pre">dialout</span></code> group with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo usermod -a -G dialout $USER
+</pre></div>
+</div>
+<p>on Arch Linux this is done by adding the user to <code class="docutils literal notranslate"><span class="pre">uucp</span></code> group with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo usermod -a -G uucp $USER
+</pre></div>
+</div>
+<p>Make sure you re-login to enable read and write permissions for the serial port.</p>
+</section>
+<section id="verify-serial-connection">
+<h2>Verify Serial Connection<a class="headerlink" href="#verify-serial-connection" title="Link to this heading"></a></h2>
+<p>Now verify that the serial connection is operational. You can do this using a serial terminal program by checking if you get any output on the terminal after resetting {IDF_TARGET_NAME}.</p>
+<p>The default console baud rate on {IDF_TARGET_NAME} is 115200.</p>
+<section id="windows-and-linux">
+<h3>Windows and Linux<a class="headerlink" href="#windows-and-linux" title="Link to this heading"></a></h3>
+<p>In this example, we use <a class="reference external" href="https://www.putty.org/">PuTTY SSH Client</a> that is available for both Windows and Linux. You can use other serial programs and set communication parameters like below.</p>
+<p>Run terminal and set identified serial port. Baud rate = 115200 (if needed, change this to the default baud rate of the chip in use), data bits = 8, stop bits = 1, and parity = N. Below are example screenshots of setting the port and such transmission parameters (in short described as 115200-8-1-N) on Windows and Linux. Remember to select exactly the same serial port you have identified in steps above.</p>
+<figure class="align-center" id="id7">
+<img alt="Setting Serial Communication in PuTTY on Windows" src="../_static/putty-settings-windows.png" />
+<figcaption>
+<p><span class="caption-text">Setting Serial Communication in PuTTY on Windows</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id8">
+<img alt="Setting Serial Communication in PuTTY on Linux" src="../_static/putty-settings-linux.png" />
+<figcaption>
+<p><span class="caption-text">Setting Serial Communication in PuTTY on Linux</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Then open serial port in terminal and check, if you see any log printed out by {IDF_TARGET_NAME}. The log contents depend on application loaded to {IDF_TARGET_NAME}, see <a class="reference internal" href="#example-output">Example Output</a>. Reset the board if no log has been printed out.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Close the serial terminal after verification that communication is working. If you keep the terminal session open, the serial port will be inaccessible for uploading firmware later.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there is no log output, check</p>
+<ul class="simple">
+<li><p>if the required power is supplied to {IDF_TARGET_NAME}</p></li>
+<li><p>if the board was reset after starting the terminal program</p></li>
+<li><p>if the selected serial port is the correct one by using the method stated in <a class="reference internal" href="#check-port-on-windows">Check Port on Windows</a> and <a class="reference internal" href="#check-port-on-linux-and-macos">Check Port on Linux and macOS</a></p></li>
+<li><p>if the serial port is not being used by another program</p></li>
+<li><p>if the identified port has been selected in serial terminal programs you are using, as stated in <a class="reference internal" href="#windows-and-linux">Windows and Linux</a></p></li>
+<li><p>if settings of the serial port in serial terminal programs are applicable to corresponding applications</p></li>
+<li><p>if the correct USB connector (UART) is used on the development board</p></li>
+<li><p>if your application is expected to output some log</p></li>
+<li><p>if the log output has not been disabled (use <a href="#id3"><span class="problematic" id="id4">:example:`hello world application &lt;get-started/hello_world&gt;`</span></a> to test)</p></li>
+</ul>
+</div>
+</section>
+<section id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Link to this heading"></a></h3>
+<p>To spare you the trouble of installing a serial terminal program, macOS offers the <strong>screen</strong> command.</p>
+<ul>
+<li><p>As discussed in <a class="reference internal" href="#check-port-on-linux-and-macos">Check port on Linux and macOS</a>, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cu</span><span class="o">.*</span>
+</pre></div>
+</div>
+</li>
+<li><p>You should see similar output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cu</span><span class="o">.</span><span class="n">Bluetooth</span><span class="o">-</span><span class="n">Incoming</span><span class="o">-</span><span class="n">Port</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cu</span><span class="o">.</span><span class="n">SLAB_USBtoUART</span>      <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cu</span><span class="o">.</span><span class="n">SLAB_USBtoUART7</span>
+</pre></div>
+</div>
+</li>
+<li><p>The output varies depending on the type and the number of boards connected to your PC. Then pick the device name of your board and run (if needed, change “115200” to the default baud rate of the chip in use):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">cu</span><span class="o">.</span><span class="n">device_name</span> <span class="mi">115200</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">device_name</span></code> with the name found running <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/dev/cu.*</span></code>.</p>
+</li>
+<li><p>What you are looking for is some log displayed by the <strong>screen</strong>. The log contents depend on application loaded to {IDF_TARGET_NAME}, see <a class="reference internal" href="#example-output">Example Output</a>. To exit the <strong>screen</strong> session type Ctrl-A + \ .</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not forget to <strong>exit the screen session</strong> after verifying that the communication is working. If you fail to do it and just close the terminal window, the serial port will be inaccessible for uploading firmware later.</p>
+</div>
+</section>
+<section id="example-output">
+<h3>Example Output<a class="headerlink" href="#example-output" title="Link to this heading"></a></h3>
+<p>An example log is shown below. Reset the board if you do not see anything.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ets Jun  8 2016 00:22:57
+
+rst:0x5 (DEEPSLEEP_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+ets Jun  8 2016 00:22:57
+
+rst:0x7 (TG0WDT_SYS_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0x00
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0008,len:8
+load:0x3fff0010,len:3464
+load:0x40078000,len:7828
+load:0x40080000,len:252
+entry 0x40080034
+I (44) boot: ESP-IDF v2.0-rc1-401-gf9fba35 2nd stage bootloader
+I (45) boot: compile time 18:48:10
+...
+</pre></div>
+</div>
+<p>If you can see readable log output, it means serial connection is working and you are ready to proceed with installation and finally upload an application to {IDF_TARGET_NAME}.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For some serial port wiring configurations, the serial RTS &amp; DTR pins need to be disabled in the terminal program before the {IDF_TARGET_NAME} booting and producing serial output. This depends on the hardware itself, most development boards (including all Espressif boards) <em>do not</em> have this issue. The issue is present if RTS &amp; DTR are wired directly to the EN &amp; GPIO0 pins. See the <a class="reference external" href="https://docs.espressif.com/projects/esptool/en/latest/advanced-topics/boot-mode-selection.html#automatic-bootloader">esptool documentation</a> for more details.</p>
+</div>
+<p>If you got here from <a class="reference internal" href="linux-macos-setup.html#get-started-connect"><span class="std std-ref">Step 5. First Steps on ESP-IDF</span></a> when installing s/w for {IDF_TARGET_NAME} development, then you can continue with <a class="reference internal" href="linux-macos-setup.html#get-started-configure"><span class="std std-ref">Step 5. First Steps on ESP-IDF</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Eng G.Locateli.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
